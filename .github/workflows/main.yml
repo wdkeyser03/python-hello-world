@@ -1,1 +1,15 @@
+name: Build and Publish Docker Image
+
+on: workflow_dispatch
+
+jobs:
+    build_and_push:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Build and Push Docker image
+              run: |
+                docker login ghcr.io --username ${{secrets.DOCKER_GITHUB_USERNAME}} --password ${{secrets.DOCKER_GITHUB_ACCESS_TOKEN}}
+                docker build . -t ghcr.io/wdkeyser03/python-hello-from-myhomelab:latest
+                docker push ghcr.io/wdkeyser03/python-hello-from-myhomelab:latest
 
