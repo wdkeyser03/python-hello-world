@@ -1,6 +1,6 @@
 services:
   python-hello-world:
-    image: willydekeyser/python-hello-from-myhomelab:latest
+    image: ghcr.io/wdkeyser03/python-hello-from-myhomelab:latest
     container_name: python-hello-world
     network_mode: none
     restart: unless-stopped
