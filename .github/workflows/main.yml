@@ -10,6 +10,6 @@ jobs:
             - name: Build and Push Docker image
               run: |
                 docker login ghcr.io --username ${{secrets.DOCKER_GITHUB_USERNAME}} --password ${{secrets.DOCKER_GITHUB_ACCESS_TOKEN}}
-                docker build . -t ghcr.io/wdkeyser03/python-hello-from-myhomelab:latest
-                docker push ghcr.io/wdkeyser03/python-hello-from-myhomelab:latest
+                docker build . -t ghcr.io/wdkeyser03/python-hello-from-myhomelab:$(TZ=":Europe/Brussels" date +'%Y%m%d.%H.%M')
+                docker push ghcr.io/wdkeyser03/python-hello-from-myhomelab:$(TZ=":Europe/Brussels" date +'%Y%m%d.%H.%M')
 
