@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: test
-        run: echo "Start! ${{ github.event.inputs.publish }} on {{ date 'YYYYMMDD' }}"
+        run: echo "Start! ${{ github.event.inputs.publish }} on ${{ date 'YYYYMMDD' }}"
       - name: Push on GitHub
         if: inputs.publish == 'DockerHub'
         run: echo "Push on Docker Hub"
