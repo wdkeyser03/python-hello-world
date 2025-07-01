@@ -1,0 +1,20 @@
+name: Build & Push Docker image
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Choose where you want to publish the build'
+        required: true
+        default: AppTester
+        type: choice
+        options:
+          - GooglePlay
+          - AppTester
+          - Both
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo "TESTEN!"
