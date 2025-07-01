@@ -4,17 +4,26 @@ on:
   workflow_dispatch:
     inputs:
       publish:
-        description: 'Choose where you want to publish the build'
+        description: 'Choose where you want to push the build'
         required: true
-        default: AppTester
+        default: Github
         type: choice
         options:
-          - GooglePlay
-          - AppTester
+          - DockerHub
+          - GitHub
           - Both
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: test
-        run: echo "TESTEN!"
+        run: echo "Start!"
+      - name: Push on GitHub
+        if: inputs.publish == 'DockerHub'
+        run: echo "Pus on Docker Hub"
+      - name: Push on Docker Hub
+        if: inputs.publish == 'GitHub'
+        run: echo "Push on GitHub"
+      - name: Push on GitHub and Docker Hub
+        if: inputs.publish == 'Both'
+        run: echo "Pus on Docker Hub & GitHub"
